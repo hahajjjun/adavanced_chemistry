@@ -8,6 +8,7 @@ let cx3=172;
 let cy1=72;
 let cy2=58;
 let cy3=77;
+let current_time=0;
 var sw = {
   // (A) INITIALIZE
   etime : null, // HTML time display
@@ -15,7 +16,6 @@ var sw = {
   ego : null, // HTML start/stop button
   init : function () {
     // (A1) GET HTML ELEMENTS
-    sw.etime = document.getElementById("sw-time");
     //sw.erst = document.getElementById("sw-rst");
     sw.ego = document.getElementById("sw-go");
 
@@ -32,18 +32,6 @@ var sw = {
   tick : function () {
     // (B1) CALCULATE HOURS, MINS, SECONDS
     sw.now++;
-    var remain = sw.now;
-    var hours = Math.floor(remain / 3600);
-    remain -= hours * 3600;
-    var mins = Math.floor(remain / 60);
-    remain -= mins * 60;
-    var secs = remain;
-
-    // (B2) UPDATE THE DISPLAY TIMER
-    if (hours<10) { hours = "0" + hours; }
-    if (mins<10) { mins = "0" + mins; }
-    if (secs<10) { secs = "0" + secs; }
-    sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
   },
   
   // (C) START!
@@ -183,18 +171,20 @@ ParticleSystem.prototype.run = function() {
 
 function draw() {
   background(255);
-  
   image(base,bx-200,by*2-200,400,160);
-  image(trans,100+10,266,50,40);
-  image(trans,195+10,265,50,40);
-  image(trans,295+10,268,50,40);
+  if(sw.now>=0 & sw.now<19){
+    image(trans,100+10,266,50,40);
+    image(trans,195+10,265,50,40);
+    image(trans,295+10,268,50,40);
+  }
+  
   //image(cis, bx-100, by,30,30);
   if(sw.now>0.1 & sw.now<15){
     system.addParticle();
     system.run();
   }
   
-  if(sw.now>=12){
+  if(sw.now>=12 & sw.now<=19){
     image(cd_45,cx1,cy1,100,100);
     image(cd_45,cx2,cy2,100,100);
     image(cd_45,cx3,cy3,100,100);
@@ -239,17 +229,51 @@ function draw() {
       cy3+=1;
     }
   }
-  if(sw.now>=15){
-    for(i=0;i<15;i++){
+  if(sw.now>=15 & sw.now<19.5){
+    
+    for(i=0;i<5;i++){
       fill(255,0,0);
       stroke(0);
       strokeWeight(0);
-      ellipse(146+random(-20,20),385.7083320617676+random(-60,10),12,12);
-      ellipse(242+random(-20,20),385.7083320617676+random(-60,10),12,12);
-      ellipse(338+random(-20,20),385.7083320617676+random(-60,10),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-60,-40),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-40,-10),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-60,-40),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-40,-10),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-60,-40),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-10,10),12,12);
     }
   }
-  
+  if(sw.now>=19){
+    image(cis,100-10,266+2,40,40);
+    image(cis,195-10,265+2,40,40);
+    image(cis,295-10,268+2,40,40);
+    image(cd_45,cx1,cy1,100,100);
+    image(cd_45,cx2,cy2,100,100);
+    image(cd_45,cx3,cy3,100,100);
+    cx1-=5
+    cy1-=5
+    cx2-=10
+    cy2-=10
+    cx3+=5
+    cy3-=5
+  }
+  if(sw.now>=19.5){
+    current_time+=1;
+    for(i=0;i<5;i++){
+      fill(255,0,0);
+      stroke(0);
+      strokeWeight(0);
+      ellipse(146+random(-2,2)*current_time,385.7083320617676+0.1*random(-40,-10)-current_time*5-random(9,10),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(9,10),12,12);
+      ellipse(242+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(9,10),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(9,10),12,12);
+      ellipse(338+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(9,10),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10)-current_time*5-random(9,10),12,12);
+    }
+  }
   
 }
 
