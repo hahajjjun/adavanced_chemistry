@@ -266,12 +266,12 @@ function draw() {
       fill(255,0,0);
       stroke(0);
       strokeWeight(0);
-      ellipse(146+random(-2,2)*current_time,385.7083320617676+0.1*random(-40,-10)-current_time*5-random(9,10),12,12);
-      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(9,10),12,12);
-      ellipse(242+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(9,10),12,12);
-      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(9,10),12,12);
-      ellipse(338+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(9,10),12,12);
-      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10)-current_time*5-random(9,10),12,12);
+      ellipse(146+random(-2,2)*current_time,385.7083320617676+0.1*random(-40,-10)-current_time*5-random(5,10),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(5,10),12,12);
+      ellipse(242+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(5,10),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(5,10),12,12);
+      ellipse(338+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(5,10),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10)-current_time*5-random(5,10),12,12);
     }
   }
   
