@@ -8,7 +8,9 @@ let cx3=172;
 let cy1=72;
 let cy2=58;
 let cy3=77;
-let current_time=0;
+let current_time1=0;
+let current_time2=0;
+let current_time3=0;
 var sw = {
   // (A) INITIALIZE
   etime : null, // HTML time display
@@ -261,17 +263,25 @@ function draw() {
     cy3-=5
   }
   if(sw.now>=19.5){
-    current_time+=1;
-    for(i=0;i<5;i++){
+    current_time1+=random(0,1);
+    current_time2+=random(0,0.95);
+    current_time3+=random(0,1.05);
+    for(i=0;i<3;i++){
       fill(255,0,0);
       stroke(0);
       strokeWeight(0);
-      ellipse(146+random(-2,2)*current_time,385.7083320617676+0.1*random(-40,-10)-current_time*5-random(5,10),12,12);
-      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(5,10),12,12);
-      ellipse(242+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(5,10),12,12);
-      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time*5-random(5,10),12,12);
-      ellipse(338+random(-2,2)*current_time,385.7083320617676+0.1*random(-60,-40)-current_time*5-random(5,10),12,12);
-      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10)-current_time*5-random(5,10),12,12);
+      ellipse(146+random(-2,2)*current_time1,385.7083320617676+0.1*random(-40,-10)-(current_time1-random(4,6))*5-random(5,10),12,12);
+      ellipse(146+random(-2,2)*current_time2,385.7083320617676+0.1*random(-40,-10)-(current_time2-random(4,6))*5-random(5,10),12,12);
+      ellipse(146+random(-2,2)*current_time1,385.7083320617676+0.1*random(-40,-10)-(current_time3-random(4,6))*5-random(5,10),12,12);
+      ellipse(146+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time1*5-random(5,10),12,12);
+      ellipse(242+random(-2,2)*current_time1,385.7083320617676+0.1*random(-60,-40)-(current_time1-random(4,6))*5-random(5,10),12,12);
+      ellipse(242+random(-2,2)*current_time2,385.7083320617676+0.1*random(-60,-40)-(current_time2-random(4,6))*5-random(5,10),12,12);
+      ellipse(242+random(-2,2)*current_time1,385.7083320617676+0.1*random(-60,-40)-(current_time3-random(4,6))*5-random(5,10),12,12);
+      ellipse(242+random(-20,20),385.7083320617676+0.1*random(-10,10)-current_time1*5-random(5,10),12,12);
+      ellipse(338+random(-2,2)*current_time1,385.7083320617676+0.1*random(-60,-40)-(current_time1-random(4,6))*5-random(5,10),12,12);
+      ellipse(338+random(-2,2)*current_time2,385.7083320617676+0.1*random(-60,-40)-(current_time2-random(4,6))*5-random(5,10),12,12);
+      ellipse(338+random(-2,2)*current_time1,385.7083320617676+0.1*random(-60,-40)-(current_time3-random(4,6))*5-random(5,10),12,12);
+      ellipse(338+random(-20,20),385.7083320617676+0.1*random(-40,-10)-current_time1*5-random(5,10),12,12);
     }
   }
   
