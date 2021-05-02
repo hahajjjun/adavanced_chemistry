@@ -61,8 +61,16 @@ var sw = {
   }
 };
 window.addEventListener("load", sw.init);
+function preload() {
+  // Ensure the .ttf or .otf font stored in the assets directory
+  // is loaded before setup() and draw() are called
+  font = loadFont('assets/arial.ttf');
+}
 function setup() {
   var cnv = createCanvas(500,500);
+  textFont(font);
+  textSize(20);
+  textAlign(CENTER,BOTTOM)
   cnv.parent("controls");
   base = loadImage("png/base.png");
   cd = loadImage("png/cd.png");
@@ -173,6 +181,8 @@ ParticleSystem.prototype.run = function() {
 
 function draw() {
   background(255);
+  fill(0);
+  text("silica surface",240,490);
   image(base,bx-200,by*2-200,400,160);
   if(sw.now>=0 & sw.now<19){
     image(trans,100+10,266,50,40);
